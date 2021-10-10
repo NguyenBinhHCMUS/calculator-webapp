@@ -1,0 +1,88 @@
+.calculator {
+  &.dark {
+    background-color: $calc-bg-dark;
+  }
+
+  @include defaultView {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  padding: 20px;
+  height: 700px;
+  width: 400px;
+  overflow: hidden;
+
+  border-radius: 20px;
+  background-color: $calc-bg;
+  box-shadow: $box-shadow;
+
+  @include flex(stretch, flex-end);
+  flex-direction: column;
+
+  &__result {
+    position: relative;
+    @include flex(flex-end, flex-end);
+    flex-direction: column;
+
+    margin-bottom: 20px;
+    text-align: right;
+
+    &__exp {
+      font-size: 3.5rem;
+      line-height: 1;
+      color: $calc-res-color;
+
+      transform-origin: right bottom;
+      transition: transform 0.3s ease;
+
+      &.dark {
+        color: $calc-res-color-dark;
+      }
+    }
+
+    &__exp:last-child {
+      position: absolute;
+      right: 0;
+    }
+
+    &__exp span {
+      display: inline-block;
+      overflow: hidden;
+      transition: width 0.3s ease;
+    }
+  }
+
+  &__btn {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+
+    button {
+      font-size: 1.25rem;
+      font-weight: 500;
+      background-color: transparent;
+      color: $txt-color;
+
+      border: 0;
+      outline: none;
+      border-radius: 10px;
+    }
+
+    button:hover {
+      color: $txt-white;
+      background-image: linear-gradient(10deg, #474442, #c3bac5);
+    }
+
+    button:last-child {
+      border-radius: 50%;
+      color: $txt-white;
+      background-image: linear-gradient(312deg, #cd6e36, #d400ff);
+    }
+
+    .btn__op {
+      color: $calc-btn-color;
+    }
+  }
+}
